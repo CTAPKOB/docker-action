@@ -1,5 +1,7 @@
-// import { hello } from '@ice/pc';
+import { hello } from '@ice/pc';
 
-// hello();
+console.log('-------------------');
+
+hello();
 
 console.log('HIHIHIH');
