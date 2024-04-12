@@ -1,3 +1,5 @@
-import { hello } from '@ice/pc';
+// import { hello } from '@ice/pc';
 
-hello();
+// hello();
+
+console.log('HIHIHIH');
