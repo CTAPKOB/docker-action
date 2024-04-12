@@ -10,8 +10,6 @@ WORKDIR /cli
 
 RUN corepack enable pnpm
 RUN pnpm install
-RUN sleep 30
-
 
 WORKDIR /cli/packages/cli
 
