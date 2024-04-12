@@ -33,6 +33,7 @@ jobs:
             olegisonen/webstudio
           tags: |
             type=sha,format=long
+            type=sha,format=short
             type=ref,event=branch
             type=ref,event=tag
 
