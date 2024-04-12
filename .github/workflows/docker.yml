@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      - staging
+      name: staging
 
     steps:
       - name: Set up Docker Buildx
@@ -20,8 +20,17 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            olegisonen/webstudio
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
+          context: .
           push: true
-          tags: user/app:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
