@@ -11,8 +11,10 @@ COPY ./ /cli
 
 WORKDIR /cli
 
-RUN corepack enable pnpm
-RUN pnpm install
+ENV PNPM_HOME="/.pnpm/store"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable pnpm && mkdir -p $PNPM_HOME
+RUN pnpm install && pnpm i -g zx
 
 # WORKDIR /cli/packages/cli
 
